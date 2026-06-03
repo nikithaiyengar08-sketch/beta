@@ -1,0 +1,487 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* =========================================================================
+   Folio — warm literary design system
+   A book-centric palette: cream paper, ink, mossy forest, dusty rose,
+   warm gold, deep burgundy, muted lavender. All colors in oklch.
+   ========================================================================= */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Folio brand tokens */
+  --color-rose: var(--rose);
+  --color-gold: var(--gold);
+  --color-lavender: var(--lavender);
+  --color-burgundy: var(--burgundy);
+  --color-forest: var(--forest);
+  --color-forest-deep: var(--forest-deep);
+  --color-ink: var(--ink);
+  --color-cream: var(--cream);
+  --color-ivory: var(--ivory);
+
+  /* Typography */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-serif: "Fraunces", "Cormorant Garamond", "Iowan Old Style", "Apple Garamond",
+    "Baskerville", "Times New Roman", serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+:root {
+  --radius: 0.75rem;
+
+  /* Paper + ink */
+  --background: oklch(0.972 0.014 84);       /* warm cream paper */
+  --foreground: oklch(0.235 0.022 55);       /* warm dark ink */
+
+  --card: oklch(0.985 0.010 84);
+  --card-foreground: oklch(0.235 0.022 55);
+  --popover: oklch(0.99 0.008 84);
+  --popover-foreground: oklch(0.235 0.022 55);
+
+  --primary: oklch(0.36 0.055 155);          /* forest green */
+  --primary-foreground: oklch(0.985 0.012 84);
+  --secondary: oklch(0.935 0.018 82);        /* warmer cream */
+  --secondary-foreground: oklch(0.235 0.022 55);
+
+  --muted: oklch(0.935 0.014 82);
+  --muted-foreground: oklch(0.46 0.022 60);
+  --accent: oklch(0.92 0.025 75);
+  --accent-foreground: oklch(0.235 0.022 55);
+
+  --destructive: oklch(0.52 0.18 22);
+  --destructive-foreground: oklch(0.985 0.012 84);
+
+  --border: oklch(0.88 0.018 75);
+  --input: oklch(0.88 0.018 75);
+  --ring: oklch(0.55 0.09 25);                /* dusty rose ring */
+
+  --chart-1: oklch(0.62 0.13 25);             /* rose */
+  --chart-2: oklch(0.72 0.13 80);             /* gold */
+  --chart-3: oklch(0.45 0.07 155);            /* forest */
+  --chart-4: oklch(0.45 0.10 320);            /* lavender */
+  --chart-5: oklch(0.40 0.13 15);             /* burgundy */
+
+  --sidebar: oklch(0.96 0.015 82);
+  --sidebar-foreground: oklch(0.235 0.022 55);
+  --sidebar-primary: oklch(0.36 0.055 155);
+  --sidebar-primary-foreground: oklch(0.985 0.012 84);
+  --sidebar-accent: oklch(0.92 0.025 75);
+  --sidebar-accent-foreground: oklch(0.235 0.022 55);
+  --sidebar-border: oklch(0.88 0.018 75);
+  --sidebar-ring: oklch(0.55 0.09 25);
+
+  /* Folio brand */
+  --rose: oklch(0.66 0.135 25);               /* dusty rose */
+  --gold: oklch(0.78 0.13 78);                /* warm amber gold */
+  --lavender: oklch(0.68 0.075 295);          /* muted lavender */
+  --burgundy: oklch(0.38 0.13 15);            /* deep wine */
+  --forest: oklch(0.45 0.065 155);            /* mossy forest */
+  --forest-deep: oklch(0.30 0.05 155);        /* deep forest */
+  --ink: oklch(0.18 0.018 50);                /* near-black warm ink */
+  --cream: oklch(0.965 0.018 85);             /* cream */
+  --ivory: oklch(0.985 0.012 84);             /* ivory — warmer card surface */
+
+  /* Gradients + shadows */
+  --gradient-paper: linear-gradient(180deg, oklch(0.985 0.012 84) 0%, oklch(0.955 0.018 82) 100%);
+  --gradient-warm: linear-gradient(135deg, oklch(0.72 0.13 78 / 0.18), oklch(0.66 0.135 25 / 0.18));
+  --gradient-forest: linear-gradient(135deg, oklch(0.45 0.065 155), oklch(0.30 0.05 155));
+  --gradient-rose: linear-gradient(135deg, oklch(0.72 0.135 30), oklch(0.55 0.13 18));
+
+  --shadow-soft: 0 1px 2px oklch(0.18 0.018 50 / 0.04), 0 4px 12px oklch(0.18 0.018 50 / 0.05);
+  --shadow-elevated: 0 2px 4px oklch(0.18 0.018 50 / 0.06), 0 12px 28px oklch(0.18 0.018 50 / 0.10);
+  --shadow-book: 0 2px 0 oklch(0.18 0.018 50 / 0.04), 0 18px 40px oklch(0.18 0.018 50 / 0.14);
+}
+
+.dark {
+  --background: oklch(0.165 0.018 50);
+  --foreground: oklch(0.95 0.015 84);
+  --card: oklch(0.205 0.020 50);
+  --card-foreground: oklch(0.95 0.015 84);
+  --popover: oklch(0.205 0.020 50);
+  --popover-foreground: oklch(0.95 0.015 84);
+  --primary: oklch(0.78 0.12 78);
+  --primary-foreground: oklch(0.18 0.018 50);
+  --secondary: oklch(0.255 0.022 55);
+  --secondary-foreground: oklch(0.95 0.015 84);
+  --muted: oklch(0.245 0.020 55);
+  --muted-foreground: oklch(0.72 0.020 75);
+  --accent: oklch(0.30 0.030 60);
+  --accent-foreground: oklch(0.95 0.015 84);
+  --destructive: oklch(0.60 0.17 22);
+  --destructive-foreground: oklch(0.98 0.012 84);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 12%);
+  --ring: oklch(0.66 0.135 25);
+  --chart-1: oklch(0.66 0.135 25);
+  --chart-2: oklch(0.78 0.13 78);
+  --chart-3: oklch(0.55 0.065 155);
+  --chart-4: oklch(0.62 0.075 295);
+  --chart-5: oklch(0.55 0.13 15);
+  --sidebar: oklch(0.205 0.020 50);
+  --sidebar-foreground: oklch(0.95 0.015 84);
+  --sidebar-primary: oklch(0.78 0.12 78);
+  --sidebar-primary-foreground: oklch(0.18 0.018 50);
+  --sidebar-accent: oklch(0.30 0.030 60);
+  --sidebar-accent-foreground: oklch(0.95 0.015 84);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.66 0.135 25);
+
+  --rose: oklch(0.72 0.135 25);
+  --gold: oklch(0.82 0.13 78);
+  --lavender: oklch(0.74 0.075 295);
+  --burgundy: oklch(0.52 0.15 15);
+  --forest: oklch(0.62 0.07 155);
+  --forest-deep: oklch(0.42 0.055 155);
+  --ink: oklch(0.95 0.015 84);
+  --cream: oklch(0.205 0.020 50);
+  --ivory: oklch(0.235 0.022 55);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  ::selection {
+    background: var(--rose);
+    color: var(--cream);
+  }
+
+  /* Subtle paper grain on the page background */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.45;
+    background-image: radial-gradient(
+        oklch(0.18 0.018 50 / 0.025) 1px,
+        transparent 1px
+      );
+    background-size: 3px 3px;
+    mix-blend-mode: multiply;
+  }
+
+  .dark body::before {
+    opacity: 0.5;
+    background-image: radial-gradient(
+        oklch(1 0 0 / 0.02) 1px,
+        transparent 1px
+      );
+    mix-blend-mode: screen;
+  }
+
+  /* Better focus rings using brand ring color */
+  :where(button, a, [role="button"], input, textarea, select):focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 0.5rem;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: var(--font-serif);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+}
+
+/* =========================================================================
+   Animation utilities — restore motion, transitions, micro-interactions
+   ========================================================================= */
+
+@utility hover-lift {
+  transition: transform 250ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@utility hover-lift {
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-elevated);
+  }
+}
+
+@utility hover-scale {
+  transition: transform 200ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@utility hover-scale {
+  &:hover {
+    transform: scale(1.03);
+  }
+}
+
+@utility story-link {
+  position: relative;
+  display: inline-block;
+}
+@utility story-link {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-elevated {
+  box-shadow: var(--shadow-elevated);
+}
+@utility shadow-book {
+  box-shadow: var(--shadow-book);
+}
+
+@utility bg-paper {
+  background-image: var(--gradient-paper);
+}
+@utility bg-gradient-warm {
+  background-image: var(--gradient-warm);
+}
+@utility bg-gradient-forest {
+  background-image: var(--gradient-forest);
+}
+@utility bg-gradient-rose {
+  background-image: var(--gradient-rose);
+}
+
+@keyframes folio-fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes folio-fade-in-soft {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes folio-scale-in {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes folio-slide-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes folio-shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+@keyframes folio-pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--rose); opacity: 0.5; }
+  100% { box-shadow: 0 0 0 14px transparent; opacity: 0; }
+}
+
+@utility animate-fade-in {
+  animation: folio-fade-in 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@utility animate-fade-in-soft {
+  animation: folio-fade-in-soft 600ms ease-out both;
+}
+@utility animate-scale-in {
+  animation: folio-scale-in 350ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@utility animate-slide-up {
+  animation: folio-slide-up 500ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@utility animate-pulse-ring {
+  animation: folio-pulse-ring 1.6s ease-out infinite;
+}
+
+@utility skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--muted) 0%,
+    color-mix(in oklab, var(--muted), white 6%) 50%,
+    var(--muted) 100%
+  );
+  background-size: 400px 100%;
+  animation: folio-shimmer 1.4s linear infinite;
+  border-radius: 0.5rem;
+}
+
+/* Stagger helper for lists */
+@utility stagger-children {
+  & > * {
+    opacity: 0;
+    animation: folio-slide-up 500ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+  }
+}
+@utility stagger-children {
+  & > *:nth-child(1) { animation-delay: 0ms; }
+  & > *:nth-child(2) { animation-delay: 60ms; }
+  & > *:nth-child(3) { animation-delay: 120ms; }
+  & > *:nth-child(4) { animation-delay: 180ms; }
+  & > *:nth-child(5) { animation-delay: 240ms; }
+  & > *:nth-child(6) { animation-delay: 300ms; }
+  & > *:nth-child(7) { animation-delay: 360ms; }
+  & > *:nth-child(8) { animation-delay: 420ms; }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* =========================================================================
+   Additional motion + texture utilities used across Folio components
+   ========================================================================= */
+
+@keyframes folio-float {
+  0%, 100% { transform: translateY(0) rotate(var(--tw-rotate, 0)); }
+  50% { transform: translateY(-10px) rotate(var(--tw-rotate, 0)); }
+}
+@keyframes folio-fade-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes folio-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+@keyframes folio-tilt-in {
+  from { opacity: 0; transform: rotate(-6deg) translateY(20px) scale(0.96); }
+  to { opacity: 1; transform: rotate(0) translateY(0) scale(1); }
+}
+
+@utility animate-float {
+  animation: folio-float 6s ease-in-out infinite;
+}
+@utility animate-fade-up {
+  animation: folio-fade-up 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@utility animate-marquee {
+  animation: folio-marquee 40s linear infinite;
+}
+@utility animate-tilt-in {
+  animation: folio-tilt-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@utility paper-grain {
+  background-image:
+    radial-gradient(oklch(0.18 0.018 50 / 0.035) 1px, transparent 1px),
+    radial-gradient(oklch(0.18 0.018 50 / 0.02) 1px, transparent 1px);
+  background-size: 3px 3px, 7px 7px;
+  background-position: 0 0, 1.5px 1.5px;
+}
+
+@utility ticker-mask {
+  mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, black 8%, black 92%, transparent 100%);
+}
+
+/* Tabs + sheets get an entrance */
+[data-state="active"][role="tabpanel"] {
+  animation: folio-fade-in-soft 350ms ease-out;
+}
+
+/* Card surface helper */
+@utility card-surface {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 1rem;
+  box-shadow: var(--shadow-soft);
+}
+
+/* Brand chip — used as eyebrow labels above sections */
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.4rem 0.85rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: color-mix(in oklab, var(--card), transparent 20%);
+  backdrop-filter: blur(8px);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--foreground), transparent 25%);
+}
+
+/* Pretty link — underline reveals on hover */
+@utility link-pretty {
+  color: var(--foreground);
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 1px;
+  transition: background-size 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+@utility link-pretty {
+  &:hover { background-size: 100% 1px; }
+}
