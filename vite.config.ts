@@ -1,20 +1,17 @@
-import { defineConfig } from "@tanstack/react-start/config";
+import { defineConfig } from "vite";
 import tailwindcss from "@tailwindcss/vite";
 import tsconfigPaths from "vite-tsconfig-paths";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  tsr: {
-    autoCodeSplitting: true,
-  },
-  vite: {
-    plugins: [
-      tailwindcss(),
-      tsconfigPaths(),
-    ],
-    server: {
-      port: 3000,
-      host: true,
-      strictPort: false,
-    },
+  plugins: [
+    react(),
+    tailwindcss(),
+    tsconfigPaths(),
+  ],
+  server: {
+    port: 3000,
+    host: true,
+    strictPort: false,
   },
 });
