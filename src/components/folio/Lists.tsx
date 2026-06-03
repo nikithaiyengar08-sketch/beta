@@ -110,7 +110,7 @@ export function Lists() {
             </Link>
           ))}
         </div>
-      </div>
+      </>
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="bg-ivory">
